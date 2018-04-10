@@ -1,0 +1,35 @@
+
+<h1>{{titulo}}</h1>
+<ul>
+	<li>Camiseta rosa</li>
+	<li>Gorra negra</li>
+</ul>
+
+<hr/>
+<p>
+	Nombre del parque:
+	<input type="text" [(ngModel)]="nombreDelParque" (keyup)="mostrarNombre()" >
+</p>
+<p>
+	Resultado : {{nombreDelParque}}
+</p>
+
+<div *ngIf="miParque">
+	<h4>Datos de mi parque desde el hijo</h4>
+	<ol>
+		<li>{{miParque.nombre}}</li>
+		<li>{{miParque.metros}}</li>
+		<li>{{miParque.vegetacion}}</li>
+		<li>{{miParque.abierto}}</li>
+	</ol>
+	
+</div>
+
+<hr/>
+<p *ngIf="nombreDelParque">
+<br>
+<parques 	[nombre] = "nombreDelParque" 
+			[metros_cuadrados] ="342"
+			(pasameLosDatos) = "verDatosParque($event)"
+></parques>
+</p>
