@@ -1,5 +1,72 @@
-<h1>
-  {{title}}
-</h1>
 
-<tienda></tienda>
+<div class="container col-lg-12" id="cont1">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/home']">{{title}}</a>
+ 
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+
+      <li class="nav-item ">
+        <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']"><i class="fas fa-home"></i>Inicio</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" a [routerLink]="['/animales']" [routerLinkActive]="['active']"><i class="fab fa-earlybirds"></i>Animales</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" a [routerLink]="['/cuidadores']" [routerLinkActive]="['active']"><i class="fas fa-user-circle"></i>Cuidadores</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" a [routerLink]="['/tienda']" [routerLinkActive]="['active']"><i class="fas fa-gift"></i>Tienda</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" a [routerLink]="['/contacto']" [routerLinkActive]="['active']"><i class="fas fa-comment-alt"></i>Contacto</a>
+      </li>
+     
+    </ul>
+    
+  </div>
+</nav>
+</div>
+
+
+<div class="col-lg-11">
+	<router-outlet></router-outlet>
+</div>
+
+
+
+<!-- OTRAS COSAS
+
+
+
+	***menu decendiente
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+
+     *****BOTON	 DE BUSCAR
+     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+	*****disable
+	 <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+
+-->

@@ -21,7 +21,10 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery-dotdotdot/src/jquery.dotdotdot.min.js"
+
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
