@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing , appRoutingProviders } from './app.routing';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //importar nuestro nuevo modulo
 import { ModuloEmailModule } from './moduloemail/moduloemail.module';
@@ -40,7 +41,8 @@ import { KeepersComponent } from './components/keepers/keepers.component';
     routing,
     EditorModule,
     ModuloEmailModule,
-    AdminModule
+    AdminModule,
+    BrowserAnimationsModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent] //El componente inicial

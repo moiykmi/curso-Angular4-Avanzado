@@ -1,21 +1,24 @@
-<div class="col-lg-4">
-	<h3>{{title}}</h3>
-	<div class="slidebar-admin" data-exaple-id="sample-nav-stacked">
-		<ul class="nav nav-pills nav-stacked nav-pill-stacked-example">
-			<li role="presentation" [routerLinkActive]="['active']">
-				<a [routerLink]="['listado']">Listado</a>
-			</li>
-			<li role="presentation" [routerLinkActive]="['active']">
-				<a [routerLink]="['crear']">Crear</a>
-			</li>
-			<li role="presentation">
-				<a [routerLink]="['listado']" [routerLinkActive]="['active']">Informacion</a>
-			</li>
-		</ul>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h3>{{title}}</h3>
+			<div class="sidebar-admin" data-exaple-id="sample-nav-stacked">
+				<ul class="nav nav-pills flex-column">
+					<li class="nav-item" >
+						<a class="nav-link"  data-toggle="pill" [routerLink]="['listado']" [routerLinkActive]="['active']">Listado</a>
+					</li>
+					<li class="nav-item" >
+						<a class="nav-link"  data-toggle="pill"[routerLink]="['crear']" [routerLinkActive]="['active']">Crear</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="pill" [routerLink]="['listado']" [routerLinkActive]="['active']">Información</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<router-outlet></router-outlet>
+		</div>
 	</div>
 </div>
-<nav class="navbar navbar-dark bg-dark">
-  hola
-</nav>
-
-<router-outlet></router-outlet>

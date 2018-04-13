@@ -21,6 +21,9 @@
 		},
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\wamp\\www\\curso-Angular4-Avanzado-Backend"
 		}
 	]
 }
