@@ -19,7 +19,10 @@ import { AnimalsComponent } from './components/animals/animals.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { KeepersComponent } from './components/keepers/keepers.component';
-
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 
 
 
@@ -31,7 +34,11 @@ import { KeepersComponent } from './components/keepers/keepers.component';
     HomeComponent,
     AnimalsComponent,
     ContactComponent,
-    KeepersComponent
+    KeepersComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserEditComponent,
+    AnimalDetailComponent
 
   ],
   imports: [
@@ -44,7 +51,9 @@ import { KeepersComponent } from './components/keepers/keepers.component';
     AdminModule,
     BrowserAnimationsModule
   ],
-  providers: [appRoutingProviders],
+  providers: [
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent] //El componente inicial
 })
 export class AppModule { }

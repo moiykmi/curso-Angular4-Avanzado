@@ -1,5 +1,23 @@
-<div class="container">
-	<h3>{{title}}</h3>
+<div class="container"  [@fadeLateral]>
+	
+	<!--
+	<div class="row">
+		<form class="form-inline my-2 my-lg-0" #formSearch="ngForm" (ngSubmit)="buscar(busqueda)">
+	    	<input class="form-control mr-sm-2" type="search" name="busqueda" [(ngModel)]="busqueda" placeholder="Buscar" aria-label="Search"/>
+	    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+	    </form>	    
+	</div>
+	-->
+	<div class="row">
+		<div class="col">
+			<h3>{{title}}</h3>
+		</div>
+		<div class="col">
+			<input class="form-control mr-sm-2" type="search" name="busqueda" [(ngModel)]="busqueda" placeholder="Filtrar" aria-label="Search"/>
+		</div>
+	</div>
+	
+
 	<table class="table">
   		<thead>
 	    <tr>
@@ -10,20 +28,41 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  	<tr *ngFor="let n of numbers; let i = index">
+	  	<tr *ngFor="let animal of animals | search : busqueda; let i = index ">
 	      <th scope="row">{{i+1}}</th>
-	      <td>Oso Panda</td>
-	      <td>2012</td>
+	      <td>{{animal.name}}</td>
+	      <td>{{animal.year}}</td>
 	      <td>
-	      	<button class="btn btn-sm btn-success">
+	      	<button [routerLink]="['/animal',animal._id]" class="btn btn-sm btn-success">
 	      		<i class="fas fa-eye"></i>Ver
 	      	</button>
-	      	<button class="btn btn-sm btn-primary">
+	      	<button [routerLink]="['/admin-panel/editar',animal._id]" class="btn btn-sm btn-primary">
 	      		<i class="fas fa-edit"></i>Editar
 	      	</button>
-	      	<button class="btn btn-sm btn-danger">
+	      	<button class="btn btn-sm btn-danger" data-toggle="modal"  [attr.data-target]="'#' + animal._id" >
 	      		<i class="fas fa-trash-alt"></i>Borrar
 	      	</button>
+					      	<!-- Modal -->
+				<div class="modal fade" [attr.id]="animal._id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        ¿Seguro que quieres eliminar el animal <strong>{{animal.name}}</strong>?.
+				        Este se eliminara completamente de la base de datos.
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, no estoy seguro</button>
+				        <button type="button" class="btn btn-primary" (click)= "deleteAnimal(animal._id)" data-dismiss="modal">Si, estoy seguro</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 	      </td>
 	    </tr>
 	  </tbody>

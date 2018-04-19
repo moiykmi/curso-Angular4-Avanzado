@@ -29,6 +29,40 @@
      
     </ul>
     
+    <ul *ngIf="!identity" class="navbar-nav navbar-light bg-light justify-content-between">
+      <li class="nav-item">
+        <a  class="navbar-brand" [routerLink]="['/registro']" [routerLinkActive]="['active']"><i class="fas fa-user-circle"></i>Registro</a>
+      </li>
+       <li class="nav-item">
+        <a  class="navbar-brand" [routerLink]="['/login']" [routerLinkActive]="['active']"><i class="fas fa-sign-in-alt"></i>Login</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right justify-content-between" *ngIf="identity">
+      
+      <li class="avatar" *ngIf="identity.image && identity.image != 'null'">
+        <img src="{{url+'/get-image-file/'+identity.image}}"/>
+      </li>
+    
+      <li class="dropdown">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> {{identity.name}}
+         </button>
+        <ul class="dropdown-menu dropdown-menu-right pointer" >
+          <li>
+            <a class="dropdown-item " [routerLink]="['/mis-datos']"> <i class="fas fa-info-circle"></i> Mis datos</a>
+          </li>
+          <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+            <a class="dropdown-item " [routerLink]="['/admin-panel']"> <i class="fas fa-puzzle-piece"></i> Administración</a>
+          </li>
+          <li>
+            <a class="dropdown-item"  (click)="logout()"> <i class="fas fa-times-circle"></i> Salir</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+
   </div>
 </nav>
 </div>

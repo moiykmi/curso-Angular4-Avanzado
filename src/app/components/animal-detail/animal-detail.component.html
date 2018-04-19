@@ -1,0 +1,21 @@
+
+<div class="container" >
+	<div class="row" *ngIf="animal">
+		<div class="col" id="animal-head-card" >
+			<img src="{{url+ '/get-image-animal/' + animal.image}}" style="width: 500px;" />
+		</div>
+		<div class="col">
+			<h1>{{animal.name}}</h1>
+			<p>{{animal.user.name+' '+animal.user.surname}}</p>
+			<p>{{animal.description}}</p>
+			<p>{{animal.year}}</p>
+			<div class="col-6">
+				<button type="button" [routerLink]="['/animales']" class="btn btn-warning">Volver</button>
+			</div>
+		</div>
+
+	</div>
+	<div class="row justify-content-md-center">
+		
+	</div>
+</div>

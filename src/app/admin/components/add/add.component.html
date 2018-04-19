@@ -1,17 +1,32 @@
-<h3>{{title}}</h3>
+<div class="container" [@fadeLateral]>
+	<h3>{{title}}</h3>
 
-<form>
-	<div class="form-group">
-		<label>Nombre</label>
-		<input type="text" class="form-control" placeholder="Ingrese Nombre"/>
-	</div>
-	<div class="form-group">
-		<label>Descripción</label>
-		 <textarea class="form-control"  rows="3"></textarea>
-	</div>
-	<div class="form-group">
-		<label>Año</label>
-		<input type="text" class="form-control" placeholder="Ingrese Año"/>
-	</div>
-	<button type="submit" class="btn btn-outline-success" >Crear Nuevo</button>
-</form>
+	<form #formAdd="ngForm" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label>Nombre</label>
+			<input type="text" name="name" #name="ngModel" [(ngModel)] = "animal.name" class="form-control"  placeholder="Ingrese Nombre" required />  
+    		<div *ngIf = "!name.valid && name.touched" class="alert alert-danger col-4"><strong>El nombre es obligatorio</strong></div>
+		</div>
+		<div class="form-group">
+			<label>Descripción</label>
+			<textarea type="text" name="description" #description="ngModel" [(ngModel)] = "animal.description" class="form-control"  placeholder="Ingrese Descripción" required ></textarea>  
+    		<div *ngIf = "!description.valid && description.touched" class="alert alert-danger col-4"><strong>Las descripción es obligatoria</strong></div>
+		</div>
+		<div class="form-group">
+			<label>Año</label>
+			<input type="text" name="year" #year="ngModel" [(ngModel)] = "animal.year" class="form-control"  placeholder="Ingrese año" required />  
+    		<div *ngIf = "!year.valid && year.touched" class="alert alert-danger col-4"><strong>El año es obligatorio</strong></div>
+		</div>
+		<div *ngIf="is_edit" >
+			<label>Imagen del animal</label>
+			<img src="{{url+ '/get-image-animal/' + animal.image}}" style="width: 300px;" />
+    		<input type="file"  placeholder="Subir imagen" (change)="fileChangeEvent($event)" /> 
+		</div>
+		<div *ngIf="!is_edit " class="form-group">
+			<label>Imagen del animal</label>
+    		<input type="file"  placeholder="Subir imagen" (change)="fileChangeEvent($event)" /> 
+		</div>
+		<button type="submit" class="btn btn-outline-success" >{{title}}</button>
+	</form>
+</div>
+

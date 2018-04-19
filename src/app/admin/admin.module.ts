@@ -5,6 +5,7 @@ import { CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AdminRoutingModule } from './admin-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //COMPONENTES
@@ -13,18 +14,27 @@ import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 
+
+import { AdminGuard } from '../services/admin.guard';
+import { UserService} from '../services/user.service';
+
+//PIPES
+import { SearchPipe } from './pipes/Search.pipe';
+
 @NgModule({
 	imports:[
 		CommonModule,
 		FormsModule,
 		HttpModule,
-		AdminRoutingModule
+		AdminRoutingModule,
+		BrowserAnimationsModule
 	],
 	declarations: [
 		MainComponent,
 		ListComponent,
 		AddComponent,
-		EditComponent
+		EditComponent,
+		SearchPipe
 	],
 	exports : [
 		MainComponent,
@@ -32,7 +42,10 @@ import { EditComponent } from './components/edit/edit.component';
 		AddComponent,
 		EditComponent
 	],
-	providers : []
+	providers : [
+	AdminGuard,
+	UserService
+	]
 })
 
 export class AdminModule{}
